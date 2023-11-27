@@ -4,7 +4,7 @@ simplebanner_controller:
     defaults:
         _controller: 'cdigruttola\Module\SimpleBanner\Controller\SimpleBannerController::index'
 
-productslider_controller_configuration_save:
+simplebanner_controller_configuration_save:
     path: /simplebanner/configuration
     methods: [POST, PATCH]
     defaults:

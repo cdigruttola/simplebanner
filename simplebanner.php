@@ -68,7 +68,7 @@ class Simplebanner extends Module implements WidgetInterface
 
     public function install()
     {
-        Configuration::updateValue(SimpleBannerConfiguration::SIMPLE_BANNER_TEXT, "");
+        Configuration::updateValue(SimpleBannerConfiguration::SIMPLE_BANNER_TEXT, []);
 
         return parent::install() &&
             $this->registerHook('displayHeader') &&

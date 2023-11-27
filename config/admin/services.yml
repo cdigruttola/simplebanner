@@ -35,7 +35,7 @@ services:
       - 'BannerConfigurationForm'
 
   cdigruttola.module.simplebanner.form.banner_configuration_type:
-    class: 'cdigruttola\Module\SimpleBanner\Form\BannerConfigurationType'
+    class: 'cdigruttola\Module\SimpleBanner\Form\SimpleBannerConfigurationType'
     parent: 'form.type.translatable.aware'
     public: true
     tags:

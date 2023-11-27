@@ -43,9 +43,8 @@ class SimpleBannerConfigurationType extends TranslatorAwareType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('text', TranslatableType::class, [
+            ->add('banner_text', TranslatableType::class, [
                 'type' => TextType::class,
-                'attr' => ['class' => 'col-md-4 col-lg-2'],
                 'required' => true,
                 'label' => $this->trans('Banner Text', TranslationDomains::TRANSLATION_DOMAIN_ADMIN),
                 'multistore_configuration_key' => SimpleBannerConfiguration::SIMPLE_BANNER_TEXT,
