@@ -1,6 +1,6 @@
 <?php
 /**
-/**
+ * /**
  * Copyright since 2007 Carmine Di Gruttola
  *
  * NOTICE OF LICENSE

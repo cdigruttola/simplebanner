@@ -48,7 +48,7 @@ class Simplebanner extends Module implements WidgetInterface
         $this->author = 'cdigruttola';
         $this->need_instance = 0;
 
-        /**
+        /*
          * Set $this->bootstrap to true if your module is compliant with bootstrap (PrestaShop 1.6)
          */
         $this->bootstrap = true;
@@ -70,9 +70,9 @@ class Simplebanner extends Module implements WidgetInterface
     {
         Configuration::updateValue(SimpleBannerConfiguration::SIMPLE_BANNER_TEXT, []);
 
-        return parent::install() &&
-            $this->registerHook('displayHeader') &&
-            $this->registerHook('displayBanner');
+        return parent::install()
+            && $this->registerHook('displayHeader')
+            && $this->registerHook('displayBanner');
     }
 
     public function uninstall()
@@ -99,6 +99,7 @@ class Simplebanner extends Module implements WidgetInterface
     public function renderWidget($hookName, array $configuration)
     {
         $this->smarty->assign('banner_text', $this->getWidgetVariables($hookName, $configuration));
+
         return $this->fetch('module:' . $this->name . '/views/templates/front/widget.tpl');
     }
 
@@ -106,5 +107,4 @@ class Simplebanner extends Module implements WidgetInterface
     {
         return Configuration::get(SimpleBannerConfiguration::SIMPLE_BANNER_TEXT, $this->context->language->id, null, $this->context->shop->id);
     }
-
 }

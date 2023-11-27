@@ -70,5 +70,4 @@ class SimpleBannerController extends FrameworkBundleAdminController
 
         return $redirectResponse;
     }
-
 }

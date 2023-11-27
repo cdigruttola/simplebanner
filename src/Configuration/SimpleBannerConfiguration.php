@@ -30,5 +30,4 @@ namespace cdigruttola\Module\SimpleBanner\Configuration;
 class SimpleBannerConfiguration
 {
     public const SIMPLE_BANNER_TEXT = 'SIMPLE_BANNER_TEXT';
-
 }

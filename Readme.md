@@ -1,1 +1,1 @@
-# Simple banner
+# Simple banner for Prestashop
