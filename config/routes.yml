@@ -1,0 +1,11 @@
+simplebanner_controller:
+    path: /simplebanner/configuration
+    methods: [GET]
+    defaults:
+        _controller: 'cdigruttola\Module\SimpleBanner\Controller\SimpleBannerController::index'
+
+productslider_controller_configuration_save:
+    path: /simplebanner/configuration
+    methods: [POST, PATCH]
+    defaults:
+        _controller: 'cdigruttola\Module\SimpleBanner\Controller\SimpleBannerController::saveConfiguration'

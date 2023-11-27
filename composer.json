@@ -1,0 +1,31 @@
+{
+  "name": "cdigruttola/simplebanner",
+  "description": "Simple Banner for site",
+  "authors": [
+    {
+      "name": "cdigruttola",
+      "email": "c.digruttola@hotmail.it"
+    }
+  ],
+  "require": {
+    "php": ">=7.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "cdigruttola\\Module\\SimpleBanner\\": "src/"
+    },
+    "classmap": [
+      "simplebanner.php"
+    ],
+    "exclude-from-classmap": []
+  },
+  "config": {
+    "preferred-install": "dist",
+    "prepend-autoloader": false,
+    "platform": {
+      "php": "5.6"
+    }
+  },
+  "type": "prestashop-module",
+  "author": "cdigruttola"
+}

@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    public: true
+
+  cdigruttola.simplebanner.module:
+    class: Simplebanner
+    factory: [ 'Module', 'getInstanceByName' ]
+    public: false
+    arguments:
+      - 'simplebanner'
+
+  cdigruttola.module.simplebanner.configuration.banner_configuration:
+    class: cdigruttola\Module\SimpleBanner\Configuration\SimpleBannerConfiguration
+    public: true
