@@ -15,6 +15,8 @@ final class SimpleBannerDataConfiguration extends AbstractMultistoreConfiguratio
 {
     private const CONFIGURATION_FIELDS = [
         'banner_text',
+        'banner_from',
+        'banner_to',
     ];
 
     /**
@@ -24,7 +26,9 @@ final class SimpleBannerDataConfiguration extends AbstractMultistoreConfiguratio
     {
         return (new OptionsResolver())
             ->setDefined(self::CONFIGURATION_FIELDS)
-            ->setAllowedTypes('banner_text', 'array');
+            ->setAllowedTypes('banner_text', 'array')
+            ->setAllowedTypes('banner_from', ['null', 'datetime'])
+            ->setAllowedTypes('banner_to', ['null', 'datetime']);
     }
 
     /**
@@ -36,6 +40,16 @@ final class SimpleBannerDataConfiguration extends AbstractMultistoreConfiguratio
         $shopConstraint = $this->getShopConstraint();
 
         $return['banner_text'] = $this->configuration->get(SimpleBannerConfiguration::SIMPLE_BANNER_TEXT, null, $shopConstraint);
+        $return['banner_from'] = new \DateTime();
+        $return['banner_to'] = new \DateTime();
+        $from = $this->configuration->get(SimpleBannerConfiguration::SIMPLE_BANNER_DATE_FROM, null, $shopConstraint);
+        if (isset($from) && $from) {
+            $return['banner_from'] = \DateTime::createFromFormat('Y-m-d H:i:s', $from);
+        }
+        $to = $this->configuration->get(SimpleBannerConfiguration::SIMPLE_BANNER_DATE_TO, null, $shopConstraint);
+        if (isset($to) && $to) {
+            $return['banner_to'] = \DateTime::createFromFormat('Y-m-d H:i:s', $to);
+        }
 
         return $return;
     }
@@ -46,7 +60,11 @@ final class SimpleBannerDataConfiguration extends AbstractMultistoreConfiguratio
     public function updateConfiguration(array $configuration): array
     {
         $shopConstraint = $this->getShopConstraint();
+        $configuration['banner_from'] = date_format($configuration['banner_from'], 'Y-m-d H:i:s');
+        $configuration['banner_to'] = date_format($configuration['banner_to'], 'Y-m-d H:i:s');
         $this->updateConfigurationValue(SimpleBannerConfiguration::SIMPLE_BANNER_TEXT, 'banner_text', $configuration, $shopConstraint);
+        $this->updateConfigurationValue(SimpleBannerConfiguration::SIMPLE_BANNER_DATE_FROM, 'banner_from', $configuration, $shopConstraint);
+        $this->updateConfigurationValue(SimpleBannerConfiguration::SIMPLE_BANNER_DATE_TO, 'banner_to', $configuration, $shopConstraint);
 
         return [];
     }

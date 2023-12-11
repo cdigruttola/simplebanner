@@ -30,4 +30,6 @@ namespace cdigruttola\Module\SimpleBanner\Configuration;
 class SimpleBannerConfiguration
 {
     public const SIMPLE_BANNER_TEXT = 'SIMPLE_BANNER_TEXT';
+    public const SIMPLE_BANNER_DATE_FROM = 'SIMPLE_BANNER_DATE_FROM';
+    public const SIMPLE_BANNER_DATE_TO = 'SIMPLE_BANNER_DATE_TO';
 }

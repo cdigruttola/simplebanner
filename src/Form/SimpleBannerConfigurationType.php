@@ -32,6 +32,7 @@ use cdigruttola\Module\SimpleBanner\Translations\TranslationDomains;
 use PrestaShopBundle\Form\Admin\Type\MultistoreConfigurationType;
 use PrestaShopBundle\Form\Admin\Type\TranslatableType;
 use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -48,6 +49,22 @@ class SimpleBannerConfigurationType extends TranslatorAwareType
                 'required' => true,
                 'label' => $this->trans('Banner Text', TranslationDomains::TRANSLATION_DOMAIN_ADMIN),
                 'multistore_configuration_key' => SimpleBannerConfiguration::SIMPLE_BANNER_TEXT,
+            ])
+            ->add('banner_from', DateTimeType::class, [
+                'label' => $this->trans('Display from', \Oksydan\IsImageslider\Translations\TranslationDomains::TRANSLATION_DOMAIN_ADMIN),
+                'required' => false,
+                'widget' => 'single_text',
+                'html5' => true,
+                'input' => 'datetime',
+                'with_seconds' => true,
+            ])
+            ->add('banner_to', DateTimeType::class, [
+                'label' => $this->trans('Display to', TranslationDomains::TRANSLATION_DOMAIN_ADMIN),
+                'required' => false,
+                'widget' => 'single_text',
+                'html5' => true,
+                'input' => 'datetime',
+                'with_seconds' => true,
             ]);
     }
 

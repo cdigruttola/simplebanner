@@ -105,6 +105,19 @@ class Simplebanner extends Module implements WidgetInterface
 
     public function getWidgetVariables($hookName, array $configuration)
     {
-        return Configuration::get(SimpleBannerConfiguration::SIMPLE_BANNER_TEXT, $this->context->language->id, null, $this->context->shop->id);
+        $from = Configuration::get(SimpleBannerConfiguration::SIMPLE_BANNER_DATE_FROM, null, null, $this->context->shop->id);
+        if (isset($from) && $from) {
+            $fromDate = \DateTime::createFromFormat('Y-m-d H:i:s', $from);
+        }
+        $to = Configuration::get(SimpleBannerConfiguration::SIMPLE_BANNER_DATE_TO, null, null, $this->context->shop->id);
+        if (isset($to) && $to) {
+            $toDate = \DateTime::createFromFormat('Y-m-d H:i:s', $to);
+        }
+        $date = new DateTime();
+        if ($date >= $fromDate && $date <= $toDate) {
+            return Configuration::get(SimpleBannerConfiguration::SIMPLE_BANNER_TEXT, $this->context->language->id, null, $this->context->shop->id);
+        }
+
+        return '';
     }
 }
