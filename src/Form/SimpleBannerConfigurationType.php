@@ -29,6 +29,7 @@ namespace cdigruttola\Module\SimpleBanner\Form;
 
 use cdigruttola\Module\SimpleBanner\Configuration\SimpleBannerConfiguration;
 use cdigruttola\Module\SimpleBanner\Translations\TranslationDomains;
+use PrestaShopBundle\Form\Admin\Type\FormattedTextareaType;
 use PrestaShopBundle\Form\Admin\Type\MultistoreConfigurationType;
 use PrestaShopBundle\Form\Admin\Type\TranslatableType;
 use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
@@ -45,7 +46,7 @@ class SimpleBannerConfigurationType extends TranslatorAwareType
     {
         $builder
             ->add('banner_text', TranslatableType::class, [
-                'type' => TextType::class,
+                'type' => FormattedTextareaType::class,
                 'required' => true,
                 'label' => $this->trans('Banner Text', TranslationDomains::TRANSLATION_DOMAIN_ADMIN),
                 'multistore_configuration_key' => SimpleBannerConfiguration::SIMPLE_BANNER_TEXT,

@@ -23,6 +23,6 @@
 *}
 
 <div class="simple_banner">
-   <p>{$banner_text}</p>
+   <p>{$banner_text|cleanHtml nofilter}</p>
 </div>
 

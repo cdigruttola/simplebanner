@@ -62,7 +62,7 @@ final class SimpleBannerDataConfiguration extends AbstractMultistoreConfiguratio
         $shopConstraint = $this->getShopConstraint();
         $configuration['banner_from'] = date_format($configuration['banner_from'], 'Y-m-d H:i:s');
         $configuration['banner_to'] = date_format($configuration['banner_to'], 'Y-m-d H:i:s');
-        $this->updateConfigurationValue(SimpleBannerConfiguration::SIMPLE_BANNER_TEXT, 'banner_text', $configuration, $shopConstraint);
+        $this->updateConfigurationValue(SimpleBannerConfiguration::SIMPLE_BANNER_TEXT, 'banner_text', $configuration, $shopConstraint, ['html' => true]);
         $this->updateConfigurationValue(SimpleBannerConfiguration::SIMPLE_BANNER_DATE_FROM, 'banner_from', $configuration, $shopConstraint);
         $this->updateConfigurationValue(SimpleBannerConfiguration::SIMPLE_BANNER_DATE_TO, 'banner_to', $configuration, $shopConstraint);
 
