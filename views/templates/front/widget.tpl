@@ -25,4 +25,3 @@
 <div class="simple_banner">
    {$banner_text|cleanHtml nofilter}
 </div>
-
