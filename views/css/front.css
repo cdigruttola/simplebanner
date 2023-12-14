@@ -23,8 +23,6 @@
  */
 
 .simple_banner {
-  position: fixed;
-  z-index: 400;
   width: 100%;
 }
 
