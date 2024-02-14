@@ -44,4 +44,5 @@ upload/
 
 **/node_modules/
 tmp
+zip-for-marketplace.sh
 config_it.xml
