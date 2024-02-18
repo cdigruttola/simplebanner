@@ -52,7 +52,7 @@ class SimpleBannerConfigurationType extends TranslatorAwareType
                 'multistore_configuration_key' => SimpleBannerConfiguration::SIMPLE_BANNER_TEXT,
             ])
             ->add('banner_from', DateTimeType::class, [
-                'label' => $this->trans('Display from', \Oksydan\IsImageslider\Translations\TranslationDomains::TRANSLATION_DOMAIN_ADMIN),
+                'label' => $this->trans('Display from', TranslationDomains::TRANSLATION_DOMAIN_ADMIN),
                 'required' => false,
                 'widget' => 'single_text',
                 'html5' => true,
