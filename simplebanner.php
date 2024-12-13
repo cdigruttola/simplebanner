@@ -98,7 +98,12 @@ class Simplebanner extends Module implements WidgetInterface
 
     public function renderWidget($hookName, array $configuration)
     {
-        $this->smarty->assign('banner_text', $this->getWidgetVariables($hookName, $configuration));
+        $widgetVariables = $this->getWidgetVariables($hookName, $configuration);
+        if (empty($widgetVariables)) {
+            return false;
+        }
+
+        $this->smarty->assign('banner_text', $widgetVariables);
 
         return $this->fetch('module:' . $this->name . '/views/templates/front/widget.tpl');
     }
